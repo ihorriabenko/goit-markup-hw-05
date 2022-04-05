@@ -81,6 +81,30 @@ body {
   font-size: 14px;
   line-height: 1.1;
   letter-spacing: 0.02em;
+
+  position: relative;
+}
+
+.hat-nav-link::after {
+  content: '';
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  bottom: -33px;
+  left: 0;
+  position: absolute;
+
+  background-color: var(--hover);
+
+  opacity: 0;
+  transform: scaleX(0);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hat-nav-link:hover::after,
+.hat-nav-link:focus::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .hat-nav-link:hover,
@@ -90,6 +114,13 @@ body {
 
 .hat-nav-link.current {
   color: var(--hover);
+}
+
+
+
+.hat-nav-link.current.hat-nav-link::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 /* header 2nd part */
